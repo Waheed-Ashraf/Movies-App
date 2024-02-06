@@ -4,11 +4,11 @@ import 'package:movies_app/Movies/domain/Entities/movie.dart';
 import 'package:movies_app/Movies/domain/Repositories/base_movies_repo.dart';
 
 class GetPopularMoviesUseCase {
-  final BaseMoviesRebo baseMoviesRebo;
+  final BaseMoviesRepo baseMoviesRepo;
 
-  GetPopularMoviesUseCase({required this.baseMoviesRebo});
+  GetPopularMoviesUseCase(this.baseMoviesRepo);
 
   Future<Either<Failure, List<Movie>>> excute() async {
-    return await baseMoviesRebo.getPopularMovies();
+    return await baseMoviesRepo.getPopularMovies();
   }
 }

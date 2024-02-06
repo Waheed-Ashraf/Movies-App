@@ -5,10 +5,10 @@ import 'package:movies_app/Movies/data/dataSource/movie_remote_data_source.dart'
 import 'package:movies_app/Movies/domain/Entities/movie.dart';
 import 'package:movies_app/Movies/domain/Repositories/base_movies_repo.dart';
 
-class MovieRepo implements BaseMoviesRebo {
+class MovieRepo implements BaseMoviesRepo {
   final BaseMovieRemoteDataSource baseMovieRemoteDataSource;
 
-  MovieRepo({required this.baseMovieRemoteDataSource});
+  MovieRepo(this.baseMovieRemoteDataSource);
 
   @override
   Future<Either<Failure, List<Movie>>> getNowPlayingMovie() async {

@@ -66,6 +66,6 @@ class MovieRemoteDataSource implements BaseMovieRemoteDataSource {
       // List<MovieModel> data = response.data["results"];
       // List<MovieModel> playingNowMovieList = [];
       // for (var element in data) {
-      //   playingNowMovieList.add(element);
+      //   playingNowMovieList.add(MovieModel.formJson(element));
       // }
       // return playingNowMovieList;
