@@ -1,13 +1,12 @@
 import 'package:equatable/equatable.dart';
 
-
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import 'package:movies_app/core/usecase/base_usecase.dart';
 
-import 'package:movies_app/Movies/domain/Entities/movie.dart';
+import 'package:movies_app/movies/domain/entities/movie.dart';
 
-
-import 'package:movies_app/Movies/domain/UseCase/get_now_playing_usecase.dart';
+import 'package:movies_app/movies/domain/usecases/get_now_playing_movies_usecase.dart';
 
 
 part 'now_playing_state.dart';
@@ -15,10 +14,10 @@ part 'now_playing_state.dart';
 
 class NowPlayingCubit extends Cubit<NowPlayingState> {
 
-  final GetNowPlayingUseCase getNowPlayingUseCase;
+  NowPlayingCubit(this.getNowPlayingMoviesUseCase) : super(NowPlayingInitial());
 
 
-  NowPlayingCubit(this.getNowPlayingUseCase) : super(NowPlayingInitial());
+  final GetNowPlayingMoviesUseCase getNowPlayingMoviesUseCase;
 
 
   Future getPlayingNow() async {
@@ -26,7 +25,7 @@ class NowPlayingCubit extends Cubit<NowPlayingState> {
     emit(NowPlayingLoadingState());
 
 
-    var result = await getNowPlayingUseCase.excute();
+    var result = await getNowPlayingMoviesUseCase.call(const NoParameters());
 
 
     result.fold((failuer) {

@@ -20,7 +20,9 @@ final class NowPlayingLoadingState extends NowPlayingState {}
 
 
 final class NowPlayingLoadedState extends NowPlayingState {
+
   final List<Movie> movie;
+
 
   const NowPlayingLoadedState({required this.movie});
 
@@ -35,4 +37,3 @@ final class NowPlayingErrorState extends NowPlayingState {
   const NowPlayingErrorState({required this.errorMessage});
 
 }
-
