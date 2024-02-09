@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movies_app/core/network/api_constance.dart';
 import 'package:movies_app/movies/presentation/controller/top_rated_cubit/top_rated_cubit.dart';
+import 'package:movies_app/movies/presentation/screens/movie_detail_screen.dart';
 import 'package:shimmer/shimmer.dart';
 
 class TopRatedSection extends StatelessWidget {
@@ -29,7 +30,11 @@ class TopRatedSection extends StatelessWidget {
                     padding: const EdgeInsets.only(right: 8.0),
                     child: InkWell(
                       onTap: () {
-                        /// TODO : NAVIGATE TO  MOVIE DETAILS
+                        Navigator.push(context, MaterialPageRoute(
+                          builder: (context) {
+                            return MovieDetailScreen(id: movie.id);
+                          },
+                        ));
                       },
                       child: ClipRRect(
                         borderRadius:

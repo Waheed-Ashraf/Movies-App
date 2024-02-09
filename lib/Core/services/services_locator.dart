@@ -15,6 +15,8 @@ import 'package:movies_app/movies/domain/usecases/get_popular_movies_usecase.dar
 import 'package:movies_app/movies/domain/usecases/get_recommendation_usecase.dart';
 
 import 'package:movies_app/movies/domain/usecases/get_top_rated_movies_usecase.dart';
+import 'package:movies_app/movies/presentation/controller/MoreLikeThisCubit/more_like_this_cubit.dart';
+import 'package:movies_app/movies/presentation/controller/movie_details_cubit/movie_details_cubit.dart';
 import 'package:movies_app/movies/presentation/controller/pobular_movies_cubit/popular_movies_cubit.dart';
 import 'package:movies_app/movies/presentation/controller/top_rated_cubit/top_rated_cubit.dart';
 
@@ -37,7 +39,14 @@ class ServicesLocator {
           sl(),
         ));
 
-    // sl.registerFactory(() => MovieDetailsBloc(sl(), sl()));
+    sl.registerFactory(() => MovieDetailsCubit(
+          sl(),
+        ));
+    sl.registerFactory(() => MoreLikeThisCubit(
+          sl(),
+        ));
+
+    // sl.registerFactory(() => MovieDetailsBloc(sl()));
 
     /// Use Cases
 

@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movies_app/core/network/api_constance.dart';
 import 'package:movies_app/movies/presentation/controller/now_playing_cubit/now_playing_cubit.dart';
+import 'package:movies_app/movies/presentation/screens/movie_detail_screen.dart';
 
 class NowPlayingSection extends StatelessWidget {
   const NowPlayingSection({super.key});
@@ -22,7 +23,7 @@ class NowPlayingSection extends StatelessWidget {
             duration: const Duration(milliseconds: 500),
             child: CarouselSlider(
               options: CarouselOptions(
-                height: MediaQuery.of(context).size.height * .8,
+                height: MediaQuery.of(context).size.height * .6,
                 viewportFraction: 1.0,
                 onPageChanged: (index, reason) {},
               ),
@@ -31,7 +32,11 @@ class NowPlayingSection extends StatelessWidget {
                   return GestureDetector(
                     key: const Key('openMovieMinimalDetail'),
                     onTap: () {
-                      /// TODO : NAVIGATE TO MOVIE DETAILS
+                      Navigator.push(context, MaterialPageRoute(
+                        builder: (context) {
+                          return MovieDetailScreen(id: item.id);
+                        },
+                      ));
                     },
                     child: Stack(
                       children: [
