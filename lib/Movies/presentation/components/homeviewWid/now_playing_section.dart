@@ -3,9 +3,10 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:movies_app/core/network/api_constance.dart';
+import 'package:movies_app/core/utils/app_router.dart';
 import 'package:movies_app/movies/presentation/controller/now_playing_cubit/now_playing_cubit.dart';
-import 'package:movies_app/movies/presentation/screens/movie_detail_screen.dart';
 
 class NowPlayingSection extends StatelessWidget {
   const NowPlayingSection({super.key});
@@ -16,14 +17,14 @@ class NowPlayingSection extends StatelessWidget {
       builder: (context, state) {
         if (state is NowPlayingLoadingState) {
           return SizedBox(
-              height: MediaQuery.of(context).size.height * .8,
+              height: MediaQuery.of(context).size.height * .65,
               child: const Center(child: CircularProgressIndicator()));
         } else if (state is NowPlayingLoadedState) {
           return FadeIn(
             duration: const Duration(milliseconds: 500),
             child: CarouselSlider(
               options: CarouselOptions(
-                height: MediaQuery.of(context).size.height * .6,
+                height: MediaQuery.of(context).size.height * .65,
                 viewportFraction: 1.0,
                 onPageChanged: (index, reason) {},
               ),
@@ -32,11 +33,10 @@ class NowPlayingSection extends StatelessWidget {
                   return GestureDetector(
                     key: const Key('openMovieMinimalDetail'),
                     onTap: () {
-                      Navigator.push(context, MaterialPageRoute(
-                        builder: (context) {
-                          return MovieDetailScreen(id: item.id);
-                        },
-                      ));
+                      GoRouter.of(context).push(
+                        AppRouter.kMovieDetailsView,
+                        extra: item.id,
+                      );
                     },
                     child: Stack(
                       children: [
