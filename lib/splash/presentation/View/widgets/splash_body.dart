@@ -20,11 +20,8 @@ class _SplashBodyState extends State<SplashBody> {
   }
 
   Future<void> navigateToHomeScreen() async {
-    await Future.delayed(const Duration(seconds: 6));
-    // Ge.to(const HomePage(),
-    //     transition: Transition.zoom, duration: kTransitionDuration);
+    await Future.delayed(const Duration(seconds: 2));
 
-    // ignore: use_build_context_synchronously
     GoRouter.of(context).replace(AppRouter.kMovieView);
   }
 

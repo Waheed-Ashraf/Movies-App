@@ -5,10 +5,11 @@ class Recommendation extends Equatable {
 
   final String? backdropPath;
 
-  final int? id;
+
+  final int id;
 
 
-  const Recommendation({this.backdropPath, this.id});
+  const Recommendation({this.backdropPath, required this.id});
 
 
   @override

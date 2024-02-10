@@ -6,7 +6,6 @@ import 'package:go_router/go_router.dart';
 import 'package:movies_app/core/network/api_constance.dart';
 import 'package:movies_app/core/utils/app_router.dart';
 import 'package:movies_app/movies/presentation/controller/top_rated_cubit/top_rated_cubit.dart';
-import 'package:movies_app/movies/presentation/screens/movie_detail_screen.dart';
 import 'package:shimmer/shimmer.dart';
 
 class TopRatedSection extends StatelessWidget {
@@ -25,7 +24,7 @@ class TopRatedSection extends StatelessWidget {
                 shrinkWrap: true,
                 scrollDirection: Axis.horizontal,
                 padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                itemCount: state.movie.length,
+                itemCount: 6,
                 itemBuilder: (context, index) {
                   final movie = state.movie[index];
                   return Container(

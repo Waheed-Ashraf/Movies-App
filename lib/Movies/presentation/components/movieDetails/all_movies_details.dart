@@ -57,8 +57,7 @@ class AllMovieDetail extends StatelessWidget {
                         ),
                         const SizedBox(width: 4.0),
                         Text(
-                          (state.movieDetail.voteAverage / 2)
-                              .toStringAsFixed(1),
+                          (state.movieDetail.voteAverage).toStringAsFixed(1),
                           style: const TextStyle(
                             fontSize: 16.0,
                             fontWeight: FontWeight.w500,
@@ -91,7 +90,6 @@ class AllMovieDetail extends StatelessWidget {
                 const SizedBox(height: 20.0),
                 Text(
                   state.movieDetail.overview,
-                  maxLines: 7,
                   style: const TextStyle(
                     overflow: TextOverflow.fade,
                     fontSize: 14.0,

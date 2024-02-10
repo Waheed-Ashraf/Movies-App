@@ -6,7 +6,7 @@ class RecommendationModel extends Recommendation {
   const RecommendationModel({
 
     super.backdropPath,
-    super.id,
+    required super.id,
 
   });
 
@@ -15,7 +15,7 @@ class RecommendationModel extends Recommendation {
 
       RecommendationModel(
 
-        id: json["id"] ?? 695721,
+        id: json["id"],
 
         backdropPath:
 

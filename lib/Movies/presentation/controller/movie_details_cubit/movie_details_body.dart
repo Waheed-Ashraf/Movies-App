@@ -1,4 +1,3 @@
-import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:movies_app/movies/presentation/components/movieDetails/all_movies_details.dart';
 import 'package:movies_app/movies/presentation/components/movieDetails/more_like_this_section.dart';
