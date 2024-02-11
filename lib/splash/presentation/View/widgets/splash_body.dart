@@ -20,7 +20,7 @@ class _SplashBodyState extends State<SplashBody> {
   }
 
   Future<void> navigateToHomeScreen() async {
-    await Future.delayed(const Duration(seconds: 2));
+    await Future.delayed(const Duration(seconds: 4));
 
     GoRouter.of(context).replace(AppRouter.kMovieView);
   }
@@ -37,7 +37,7 @@ class _SplashBodyState extends State<SplashBody> {
             width: 210,
             height: 210,
             fit: BoxFit.contain,
-            repeat: false, // Set to false to play the animation only once
+            repeat: true, // Set to false to play the animation only once
             reverse: false,
           ),
           const Text(
